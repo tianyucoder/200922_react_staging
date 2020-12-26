@@ -23,11 +23,14 @@ export default class App extends Component {
 
 	deleteTodo = (id)=>{
 		const {todos} = this.state
+
+		//使用filter通过id删除
 		const newTodos = todos.filter((todoObj)=>{
 			return todoObj.id !== id
 		})
 		this.setState({todos:newTodos})
 		
+		//使用splice通过index删除
 		/* todos.splice(index,1)
 		this.setState({todos:todos}) */
 	}
