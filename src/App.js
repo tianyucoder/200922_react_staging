@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+//使用函数定义了一个App组件
 function App() {
   return (
     <div className="App">
