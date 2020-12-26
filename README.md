@@ -9,7 +9,7 @@
 							  ├── index.js ==> 入口文件，要引入：React，ReactDOM，App
 							  ├── App.jsx ==>整个应用的外壳组件
 							  └── components ==>专门用于存放程序员写的组件
-									  ├── Weather.jsx ==>天气组件(自己要写的功能组件)
+									   ├── Weather.jsx ==>天气组件(自己要写的功能组件)
 			(2).注意点：
 						 1). import React,{Component} from 'react' 不是解构赋值！
 						 2). html中容器的id，必须和index.js中写的容器相对应。
