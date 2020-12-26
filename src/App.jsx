@@ -13,11 +13,19 @@ export default class App extends Component {
 			{id:'003',name:'烫头',done:true}
 		]
 	}
+
+	addTodo = (todoObj)=>{
+		//获取原数据
+		const {todos} = this.state
+		//更新状态
+		this.setState({todos:[todoObj,...todos]})
+	}
+	
 	render() {
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
-					<Add/>
+					<Add addTodo={this.addTodo}/>
 					<List todos={this.state.todos}/>
 					<Footer/>
 				</div>
