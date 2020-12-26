@@ -20,13 +20,24 @@ export default class App extends Component {
 		//更新状态
 		this.setState({todos:[todoObj,...todos]})
 	}
-	
+
+	deleteTodo = (id)=>{
+		const {todos} = this.state
+		const newTodos = todos.filter((todoObj)=>{
+			return todoObj.id !== id
+		})
+		this.setState({todos:newTodos})
+		
+		/* todos.splice(index,1)
+		this.setState({todos:todos}) */
+	}
+
 	render() {
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Add addTodo={this.addTodo}/>
-					<List todos={this.state.todos}/>
+					<List todos={this.state.todos} deleteTodo={this.deleteTodo}/>
 					<Footer/>
 				</div>
 			</div>
