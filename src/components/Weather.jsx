@@ -1,6 +1,6 @@
-import React from 'react'
+import React,{Component} from 'react'
 
-export default class Weather extends React.Component{
+export default class Weather extends Component{
 	state = {isHot:true}
 
 	changeWeather = ()=>{
