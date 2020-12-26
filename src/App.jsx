@@ -14,6 +14,7 @@ export default class App extends Component {
 		]
 	}
 
+	//添加todo
 	addTodo = (todoObj)=>{
 		//获取原数据
 		const {todos} = this.state
@@ -21,6 +22,7 @@ export default class App extends Component {
 		this.setState({todos:[todoObj,...todos]})
 	}
 
+	//删除todo
 	deleteTodo = (id)=>{
 		const {todos} = this.state
 
@@ -35,13 +37,24 @@ export default class App extends Component {
 		this.setState({todos:todos}) */
 	}
 
+	//更新todo
+	updateTodo = (id,done)=>{
+		const {todos} = this.state
+		const newTodos = todos.map((todoObj)=>{
+			if(todoObj.id === id) todoObj.done = done
+			return todoObj
+		})
+		this.setState({todos:newTodos})
+	}
+
 	render() {
+		const {todos} = this.state
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Add addTodo={this.addTodo}/>
-					<List todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-					<Footer/>
+					<List todos={todos} deleteTodo={this.deleteTodo} updateTodo={this.updateTodo}/>
+					<Footer todos={todos}/>
 				</div>
 			</div>
 		)

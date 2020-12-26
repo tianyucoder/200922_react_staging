@@ -21,6 +21,13 @@ export default class Item extends Component {
 		}
 	}
 
+	//勾选or取消勾选的回调
+	handleCheck = (id)=>{
+		return (event)=>{
+			this.props.updateTodo(id,event.target.checked)
+		}
+	}
+
 	render() {
 			const {id,name,done} = this.props
 			const {mouseIsEnter} = this.state
@@ -31,7 +38,7 @@ export default class Item extends Component {
 					className={mouseIsEnter ? 'active' : ''}
 				>
 					<label>
-						<input type="checkbox" defaultChecked={done} />
+						<input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
 						<span>{name}</span>
 					</label>
 					<button 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+
+		/* 
+			数组的reduce方法：
+				语法：
+					arr.reduce((preValue, current, index, arr)=>{},initialValue)
+					arr：当前操作的数组
+					preValue:第一次执行回调时为给定的初始值initialValue，以后是上一次执行回调时的返回值。
+							备注：若没有传入initialValue，则第一次的preValue值是数组中第一个元素的值。
+					current 表示当前正在处理的元素；
+					index 表示当前正在处理的数组元素的索引，若传入了initialValue值，则为0，否则为1；
+					array 当前操作的数组(就是arr)
+					initialValue 表示初始值。一般做数学运算时设置为0，若为筛选最值可以不传。
+			*/
+			let persons = [
+				{id:'001',name:'tom',age:16},
+				{id:'002',name:'老刘',age:17},
+				{id:'003',name:'超哥',age:18},
+				{id:'004',name:'强强',age:19},
+			]
+
+			let arr = [1,2,3,4,5,6,7,8,9,10]
+
+			//reduce可以进行累加
+			const result = arr.reduce((preValue,current)=>{
+				// console.log(preValue,current)
+				return preValue + current
+			},0)
+
+			//reduce可以条件求和
+			const result2 = arr.reduce((preValue,current)=>{
+				return preValue + (current % 2 === 0 ? current : 0)
+			},0)
+			console.log(result2)
+
+			//reduce可以条件统计
+			const result3 = arr.reduce((preValue,current)=>{
+				return preValue + (current % 2 !== 0 ? 1 : 0)
+			},0)
+			console.log(result3)
+
+			//筛选最值
+			const result4 = arr.reduce((preValue,current)=>{
+				return Math.max(preValue,current)
+			})
+			console.log(result4)
+
+			
+
+
+		</script>
+	</body>
+</html>
