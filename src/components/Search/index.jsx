@@ -9,10 +9,20 @@ export default class Search extends Component {
 		const {value} = this.keyWordContainer.current
 		//2.校验数据
 		if(!value.trim()) return alert('输入不能为空')
+		//通知App将：isFirst变为false、isLoading变为true
+		this.props.updateAppState({isFirst:false,isLoading:true})
 		//3.发送请求获取数据
-		axios.get(`https://api.github.com/search/users?q=${value}`).then(
-			response => {console.log('成功了',response.data.items)},
-			error => {console.log('失败了',error)}
+		axios.get(`/search/users?q=${value}`).then(
+			response => {
+				const {items} = response.data
+				//请求成功后，通知App：存储用户信息、将isLoading变为false
+				this.props.updateAppState({users:items,isLoading:false})
+			},
+			error => {
+				//注意：此处的error是一个对象，真正的错误信息在error.message
+				//请求失败后，存储错误信息、将isLoading变为false
+				this.props.updateAppState({isLoading:false,errorMsg:error.message})
+			}
 		)
 	}
 

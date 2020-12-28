@@ -3,38 +3,24 @@ import './index.css'
 
 export default class List extends Component {
 	render() {
+		const {users,isFirst,isLoading,errorMsg} = this.props
 		return (
 			<div className="row">
-				<div className="card">
-					<a href="https://github.com/reactjs" target="_blank">
-						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1872443964,1195437634&fm=26&gp=0.jpg" style={{width: '100px'}}/>
-					</a>
-					<p className="card-text">reactjs</p>
-				</div>
-				<div className="card">
-					<a href="https://github.com/reactjs" target="_blank">
-						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1872443964,1195437634&fm=26&gp=0.jpg" style={{width: '100px'}}/>
-					</a>
-					<p className="card-text">reactjs</p>
-				</div>
-				<div className="card">
-					<a href="https://github.com/reactjs" target="_blank">
-						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1872443964,1195437634&fm=26&gp=0.jpg" style={{width: '100px'}}/>
-					</a>
-					<p className="card-text">reactjs</p>
-				</div>
-				<div className="card">
-					<a href="https://github.com/reactjs" target="_blank">
-						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1872443964,1195437634&fm=26&gp=0.jpg" style={{width: '100px'}}/>
-					</a>
-					<p className="card-text">reactjs</p>
-				</div>
-				<div className="card">
-					<a href="https://github.com/reactjs" target="_blank">
-						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1872443964,1195437634&fm=26&gp=0.jpg" style={{width: '100px'}}/>
-					</a>
-					<p className="card-text">reactjs</p>
-				</div>
+				{
+						isFirst ? <h1>欢迎使用！</h1> : 
+						isLoading ? <h1>Loading....</h1> : 
+						errorMsg ? <h1>{errorMsg}</h1> :
+						users.map((userObj)=>{
+							return (
+								<div className="card" key={userObj.id}>
+									<a href={userObj.html_url} target="_blank" rel="noreferrer">
+										<img alt="pic" src={userObj.avatar_url} style={{width: '100px'}}/>
+									</a>
+									<p className="card-text">{userObj.login}</p>
+								</div>
+							)
+						})
+				}
 			</div>
 		)
 	}
