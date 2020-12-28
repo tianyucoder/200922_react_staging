@@ -47,6 +47,14 @@ export default class App extends Component {
 		this.setState({todos:newTodos})
 	}
 
+	//勾选or取消勾选
+	checkAll = (done)=>{
+		const {todos} = this.state
+		const newTodos = todos.map( todoObj =>({...todoObj,done}))
+		console.log(newTodos)
+		this.setState({todos:newTodos})
+	}
+
 	render() {
 		const {todos} = this.state
 		return (
@@ -54,7 +62,7 @@ export default class App extends Component {
 				<div className="todo-wrap">
 					<Add addTodo={this.addTodo}/>
 					<List todos={todos} deleteTodo={this.deleteTodo} updateTodo={this.updateTodo}/>
-					<Footer todos={todos}/>
+					<Footer todos={todos} checkAll={this.checkAll}/>
 				</div>
 			</div>
 		)

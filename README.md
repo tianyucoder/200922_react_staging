@@ -31,4 +31,12 @@
 			(3).关于父子之间通信：
 						1.【父组件】给【子组件】传递数据：通过props传递
 						2.【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数
+			(4).兄弟组件之间通信：借助共同的父亲
+			(5).关于checked和defaultChecked：
+							1.什么时候用checked？————不仅仅展示勾选的状态，后期还需要响应勾选的动作
+																			注意：用了checked，就必须用onChange
+							2.什么时候用defaultChecked？————仅仅展示勾选的状态
+																							注意：defaultChecked只管第一次渲染
+							3.value和defaultValue也是同理的
+
 												
