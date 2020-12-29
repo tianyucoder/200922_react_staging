@@ -54,7 +54,7 @@
 					2.适用于任意组件间通信
 					3.要在组件的componentWillUnmount中取消订阅		
 
-### 5.NavLink与封装NavLink
+### 5.NavLink的使用
 				1.NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
 
 ### 6.Switch的使用
@@ -98,4 +98,8 @@
 											url: "/about"
 
 ### 8.刷新页面样式丢失问题
-				1.什么时候样式会丢失
+				1.什么时候样式会丢失：当路径有多级结构时，刷新页面会造成样式的丢失
+				2.如何解决：
+						(1).index.html中引入自身服务器的资源时，不要写./ 要写/
+						(2).index.html中引入自身服务器的资源时，不要写./ 要写%PUBLIC_URL%
+						(3).HashRouter替代BrowserRouter
