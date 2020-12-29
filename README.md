@@ -103,3 +103,14 @@
 						(1).index.html中引入自身服务器的资源时，不要写./ 要写/
 						(2).index.html中引入自身服务器的资源时，不要写./ 要写%PUBLIC_URL%
 						(3).HashRouter替代BrowserRouter
+
+### 9.路由的严格匹配与模糊匹配
+				1.默认使用的是模糊匹配
+				2.开启严格匹配：<Route exact={true} path="/about" component={About}/>
+				3.严格匹配不要随便开启，需要再开，开启会导致无法继续匹配二级路由
+
+### 10.向路由组件传递参数
+				1.params参数
+							路由链接(携带参数)：<Link to='/demo/test/tom/18'}>详情</Link>
+							注册路由(声明接收)：<Route path="/demo/test/:name/:age" component={Test}/>
+							接收参数：this.props.match.params
