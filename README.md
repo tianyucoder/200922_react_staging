@@ -54,9 +54,12 @@
 					2.适用于任意组件间通信
 					3.要在组件的componentWillUnmount中取消订阅		
 
-### 5.路由的基本使用
+### 5.NavLink与封装NavLink
+				1.NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
 
-### 6.NavLink的使用
+### 6.Switch的使用
+				1.通常情况下，path和component是一一对应的关系。
+				2.Switch可以提高路由匹配效率(单一匹配)。
 
 ### 7.路由组件和一般组件的区别
 			1.使用方式不同：
@@ -93,3 +96,6 @@
 											params: {}
 											path: "/about"
 											url: "/about"
+
+### 8.刷新页面样式丢失问题
+				1.什么时候样式会丢失
