@@ -52,4 +52,44 @@
 		2.消息订阅与发布机制
 					1.先订阅，再发布（理解：有一种对讲机的感觉）
 					2.适用于任意组件间通信
-					3.要在组件的componentWillUnmount中取消订阅						
+					3.要在组件的componentWillUnmount中取消订阅		
+
+### 5.路由的基本使用
+
+### 6.NavLink的使用
+
+### 7.路由组件和一般组件的区别
+			1.使用方式不同：
+					一般组件：程序员自己写组件标签触发渲染，例如： <Demo/>
+					路由组件：靠路由器匹配路径触发渲染，例如：<Route path="/about" component={Demo}/>
+			2.存放位置不同
+					一般组件：components
+					路由组件：pages
+			3.收到的props不同
+					一般组件：程序员写标签时，传了什么，就收到什么
+					路由组件：收到一个固定的对象，结构如下：
+								history:
+											action: "PUSH"
+											block: ƒ block(prompt)
+											createHref: ƒ createHref(location)
+											go: ƒ go(n)
+											goBack: ƒ goBack()
+											goForward: ƒ goForward()
+											length: 2
+											listen: ƒ listen(listener)
+											location: {pathname: "/about", search: "", hash: "", state: null, key: "47zt8t"}
+											push: ƒ push(path, state)
+											replace: ƒ replace(path, state)
+
+									location:
+											hash: ""
+											key: "47zt8t"
+											pathname: "/about"
+											search: ""
+											state: null
+
+									match:
+											isExact: true
+											params: {}
+											path: "/about"
+											url: "/about"
