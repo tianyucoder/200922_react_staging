@@ -72,17 +72,12 @@
 					一般组件：程序员写标签时，传了什么，就收到什么
 					路由组件：收到一个固定的对象，结构如下：
 								history:
-											action: "PUSH"
-											block: ƒ block(prompt)
-											createHref: ƒ createHref(location)
+											action: "PUSH" ========> //当前路由的跳转模式
 											go: ƒ go(n)
 											goBack: ƒ goBack()
 											goForward: ƒ goForward()
-											length: 2
-											listen: ƒ listen(listener)
-											location: {pathname: "/about", search: "", hash: "", state: null, key: "47zt8t"}
-											push: ƒ push(path, state)
-											replace: ƒ replace(path, state)
+											push: ƒ push(path, state)========> //路由的push跳转
+											replace: ƒ replace(path, state)========> //路由的replace跳转
 
 									location:
 											hash: ""
