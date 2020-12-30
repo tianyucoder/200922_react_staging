@@ -10,20 +10,6 @@ export default class HomeMessage extends Component {
 			{id:'003',title:'消息003',content:'我爱你，未来的女朋友'}
 		]
 	}
-
-	handlePush = (msgObj)=>{
-		const {id,title,content} = msgObj
-		return ()=>{
-			this.props.history.push('/home/message/detail',{id,title,content})
-		}
-	}
-	handleReplace = (msgObj)=>{
-		const {id,title,content} = msgObj
-		return ()=>{
-			this.props.history.replace('/home/message/detail',{id,title,content})
-		}
-	}
-
 	render() {
 		return (
 			<div>
@@ -43,8 +29,6 @@ export default class HomeMessage extends Component {
 											}
 										}}
 									>{msgObj.title}</Link>&nbsp;&nbsp;
-									<button onClick={this.handlePush(msgObj)}>push查看详情</button>
-									<button onClick={this.handleReplace(msgObj)}>replace查看详情</button>
 								</li>
 							)
 						})
