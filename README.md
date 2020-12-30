@@ -88,12 +88,12 @@
 											hash: ""
 											key: "47zt8t"
 											pathname: "/about"
-											search: ""
-											state: null
+											search: "" ========> //接收search参数
+											state: null ========> //接收state参数
 
 									match:
 											isExact: true
-											params: {}
+											params: {} ========> //收集params参数
 											path: "/about"
 											url: "/about"
 
@@ -114,3 +114,12 @@
 							路由链接(携带参数)：<Link to='/demo/test/tom/18'}>详情</Link>
 							注册路由(声明接收)：<Route path="/demo/test/:name/:age" component={Test}/>
 							接收参数：this.props.match.params
+				2.search参数
+							路由链接(携带参数)：<Link to='/demo/test?name=tom&age=18'}>详情</Link>
+							注册路由(声明接收)：<Route path="/demo/test" component={Test}/>
+							接收参数：this.props.location.search
+							备注：需要借助querystring进行解析
+				3.state参数
+							路由链接(携带参数)：<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}}>详情</Link>
+							注册路由(声明接收)：<Route path="/demo/test" component={Test}/>
+							接收参数：this.props.location.state
